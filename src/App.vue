@@ -1,17 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <div class="card-title">
+      <h2>Current news {{ now }}</h2>
+      <hr />
+    </div>
+    <div class="card" v-for="item in news" :key="item">
+      <h3>{{ item }}</h3>
+      <button class="btn">Open</button>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  data() {
+    return {
+      now: new Date().toLocaleDateString(),
+      news: ["News1", "News2"],
+    };
+  },
+};
 </script>
 
 <style>

@@ -1,0 +1,41 @@
+body {
+  background-color: rgb(241, 241, 170);
+}
+
+.container {
+  margin: 0 auto;
+  width: 50vw;
+  /* outline: solid blue; */
+}
+
+.card {
+  border: 1px solid rgb(87, 87, 199);
+  border-radius: 10px;
+}
+
+.card-title {
+  margin-bottom: 10px;
+}
+
+.card {
+  margin-bottom: 5px;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #2756a8ad;
+  border: transparent;
+  color: white;
+  cursor: pointer;
+}
+.btn:hover {
+  border: transparent;
+  background-color: rgb(0, 119, 128);
+}
