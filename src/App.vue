@@ -3,7 +3,10 @@
     <div class="card-title">
       <h2>Current news {{ now }}</h2>
       <hr />
-      <span>Open:{{ openRate }}</span>
+      <span
+        >Open: <strong>{{ openRate }}</strong> | It has been read:
+        <strong>{{ readRate }}</strong></span
+      >
     </div>
     <app-news
       v-for="item in news"
@@ -11,7 +14,9 @@
       :title="item.title"
       :id="item.id"
       :is-open="item.isOpen"
-      @open-news="openRate++"
+      :was-read="item.wasRead"
+      @open-news="openNews"
+      @read-news="readNews"
     ></app-news>
   </div>
 </template>
@@ -24,11 +29,22 @@ export default {
     return {
       now: new Date().toLocaleDateString(),
       openRate: 0,
+      readRate: 0,
       news: [
-        { title: "News1", id: 1, isOpen: false },
-        { title: "News2", id: 2, isOpen: false },
+        { title: "News1", id: 1, isOpen: false, wasRead: false },
+        { title: "News2", id: 2, isOpen: false, wasRead: false },
       ],
     };
+  },
+  methods: {
+    openNews() {
+      this.openRate++;
+    },
+    readNews(id) {
+      this.readRate++;
+      const idx = this.news.findIndex((news) => news.id === id);
+      this.news[idx].wasRead = true;
+    },
   },
   components: {
     "app-news": AppNews,
