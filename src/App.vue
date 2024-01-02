@@ -35,6 +35,16 @@ export default {
         { title: "News1", id: 1, isOpen: false, wasRead: false },
         { title: "News2", id: 2, isOpen: false, wasRead: false },
       ],
+      itemsNews: [
+        { title: "itemNews1", id: 1, isOpen: false, wasRead: false },
+        { title: "itemNews2", id: 2, isOpen: false, wasRead: false },
+      ],
+    };
+  },
+  provide() {
+    return {
+      title: "List of News",
+      itemsNews: this.itemsNews,
     };
   },
   methods: {
