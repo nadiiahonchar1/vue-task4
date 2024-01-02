@@ -11,6 +11,7 @@
       :title="item.title"
       :id="item.id"
       :is-open="item.isOpen"
+      @open-news="openRate++"
     ></app-news>
   </div>
 </template>
