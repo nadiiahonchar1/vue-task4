@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(241, 241, 170);
+  background-color: rgb(251 255 132 / 30%);
 }
 
 .container {
@@ -20,9 +20,9 @@ body {
 .card {
   margin-bottom: 5px;
   padding: 5px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* display: flex; */
+  /* justify-content: space-between;
+  align-items: center; */
 }
 
 .btn {
