@@ -2,12 +2,12 @@
   <div class="card">
     <h3>{{ title }}</h3>
     <div class="centeder">
-      <button class="btn" @click="open">
-        {{ !isNewOpen ? "Open" : "Close" }}
-      </button>
-      <button v-if="wasRead" class="btn" @click="$emit('unmark', id)">
-        Cancel reading
-      </button>
+      <app-button @action="open">{{
+        !isNewOpen ? "Open" : "Close"
+      }}</app-button>
+      <app-button v-if="wasRead" color="danger" @action="$emit('unmark', id)"
+        >Cancel reading</app-button
+      >
     </div>
     <div v-if="isNewOpen">
       <hr />
@@ -35,12 +35,15 @@
         delectus perspiciatis sunt? Dolor quae qui molestias totam nesciunt. Est
         sit tenetur excepturi, temporibus quisquam commodi?
       </p>
-      <button v-if="!wasRead" class="btn" @click="mark">Read the news</button>
+      <app-button v-if="!wasRead" color="primary" @action="mark"
+        >Read the news</app-button
+      >
     </div>
   </div>
 </template>
 
 <script>
+import AppButton from "./AppButton.vue";
 export default {
   props: {
     title: { type: String, required: true },
@@ -81,9 +84,9 @@ export default {
       this.isNewOpen = false;
       this.$emit("read-news", this.id);
     },
-    // unmark() {
-    //   this.$emit("unmark", this.id);
-    // },
+  },
+  components: {
+    AppButton,
   },
 };
 </script>
