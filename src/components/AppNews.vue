@@ -1,9 +1,14 @@
 <template>
   <div class="card">
     <h3>{{ title }}</h3>
-    <button class="btn" @click="open">
-      {{ !isNewOpen ? "Open" : "Close" }}
-    </button>
+    <div class="centeder">
+      <button class="btn" @click="open">
+        {{ !isNewOpen ? "Open" : "Close" }}
+      </button>
+      <button v-if="wasRead" class="btn" @click="$emit('unmark', id)">
+        Cancel reading
+      </button>
+    </div>
     <div v-if="isNewOpen">
       <hr />
       <p>
@@ -52,6 +57,13 @@ export default {
       console.warn("No ID");
       return false;
     },
+    unmark(id) {
+      if (id) {
+        return true;
+      }
+      console.warn("No ID");
+      return false;
+    },
   },
   data() {
     return {
@@ -67,9 +79,11 @@ export default {
     },
     mark() {
       this.isNewOpen = false;
-
       this.$emit("read-news", this.id);
     },
+    // unmark() {
+    //   this.$emit("unmark", this.id);
+    // },
   },
 };
 </script>

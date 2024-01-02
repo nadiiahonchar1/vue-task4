@@ -39,3 +39,9 @@ body {
   border: transparent;
   background-color: rgb(0, 119, 128);
 }
+
+.centeder {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
